@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import buildHasuraProvider from 'ra-data-hasura';
 import { MenuList } from "./modules/menu/components/menu-list/menu-list.component";
 import { MenuEdit } from "./modules/menu/components/menu-edit/menu-edit.component";
+import { MenuCreate } from "./modules/menu/components/menu-create/menu-create.component";
 
 
 export const App = () => {
@@ -29,7 +30,7 @@ export const App = () => {
           name="menu"
           list={MenuList}
           edit={MenuEdit}
-          // create={PostCreate}
+          create={MenuCreate}
         />
       </Admin>
     </>
