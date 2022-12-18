@@ -1,0 +1,1 @@
+export const JWT_ADMIN_TOKEN = 'fishstack_jwt_admin'

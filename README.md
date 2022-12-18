@@ -2,3 +2,5 @@
 - MaterialUI
 - https://github.com/hasura/ra-data-hasura
 - graphql-tag -D
+- marmelab.com/react-admin
+- apollo/client
