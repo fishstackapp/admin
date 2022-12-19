@@ -1,10 +1,19 @@
-import { Datagrid, List, NumberField, TextField } from 'react-admin';
+import { Datagrid, EditButton, FunctionField, List, TextField, TextInput } from 'react-admin';
+import { MenuListExpend } from '@app/modules/menu/components/menu-list-expand/menu-list-expand.component';
+import { Menu } from '@app/core/types';
 
-export const MenuList = () => (
-    <List>
-        <Datagrid rowClick="edit">
-            <TextField source="title" />
-            <NumberField source="price" />
-        </Datagrid>
-    </List>
-);
+const filters = [
+    <TextInput source='title' label='Пошук по назві'/>
+]
+
+export const MenuList = () => {
+    return (
+        <List filters={filters} exporter={false}>
+            <Datagrid expand={MenuListExpend} rowClick="expand" bulkActionButtons={false}>
+                <TextField source="title" label="Назва"/>
+                <FunctionField label="Ціна" render={(record: Menu) => `${record.price} грн`}/>
+                <EditButton />
+            </Datagrid>
+        </List>
+    )
+}

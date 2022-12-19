@@ -12,7 +12,7 @@ import { i18nProvider } from "./core/i18n";
 
 
 export const App = () => {
-  const [dataProvider, setDataProvider] = useState<DataProvider <string> | null>(null);
+  const [dataProvider, setDataProvider] = useState<DataProvider<string> | null>(null);
 
   useEffect(() => {
     const buildDataProvider = async () => {
@@ -20,7 +20,7 @@ export const App = () => {
         client: apolloClient,
       });
 
-      setDataProvider(() => dataProvider);
+      setDataProvider(dataProvider);
     };
 
     buildDataProvider();
@@ -45,6 +45,7 @@ export const App = () => {
           list={MenuList}
           edit={MenuEdit}
           create={MenuCreate}
+          options={{label: "Меню"}}
         />
       </Admin>
     </>
