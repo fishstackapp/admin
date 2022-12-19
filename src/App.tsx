@@ -18,7 +18,7 @@ export const App = () => {
         client: apolloClient,
       });
 
-      setDataProvider((dataProvider));
+      setDataProvider(() => dataProvider);
     };
 
     buildDataProvider();
