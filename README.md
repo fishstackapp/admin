@@ -1,6 +1,9 @@
-- Template Admin => npm i react-admin
+- Template Admin => react-admin
 - MaterialUI
 - https://github.com/hasura/ra-data-hasura
-- graphql-tag -D
-- marmelab.com/react-admin
+- graphql-tag
 - apollo/client
+- marmelab.com/react-admin (Adminka)
+- Material-UI Theme Creator
+- ra-language-ukrainian
+- ra-i18n-polyglot

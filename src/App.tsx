@@ -7,6 +7,8 @@ import { MenuEdit } from "@app/modules/menu/components/menu-edit/menu-edit.compo
 import { MenuCreate } from "@app/modules/menu/components/menu-create/menu-create.component";
 import { authProvider } from "@app/core/auth-provider";
 import { apolloClient } from "@app/core/apollo-client";
+import { theme } from "./core/theme";
+import { i18nProvider } from "./core/i18n";
 
 
 export const App = () => {
@@ -24,7 +26,9 @@ export const App = () => {
     buildDataProvider();
   }, []);
 
-  if (!dataProvider) return <Loading />;
+  if (!dataProvider) {
+    return <Loading />
+  };
 
   return (
     <>
@@ -32,7 +36,9 @@ export const App = () => {
       <Admin 
       dataProvider={dataProvider} 
       authProvider={authProvider} 
+      i18nProvider={i18nProvider}
       requireAuth
+      theme={theme}
       >
         <Resource
           name="menu"
