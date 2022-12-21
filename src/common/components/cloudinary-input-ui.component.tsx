@@ -1,12 +1,15 @@
-import { Card, CardHeader } from "@mui/material";
+import { Card, CardHeader, CardContent, Skeleton, CardActions, Button } from "@mui/material";
 import { FC, useRef } from "react";
 
-interface CloudinaryInputUiProps {
+interface CloudinaryInputUIProps {
   placeholder: string,
 }
 
-export const CloudinaryInputUi: FC<CloudinaryInputUiProps> = ({placeholder}) => {
-  const inputRef = useRef(null)
+export const CloudinaryInputUI: FC<CloudinaryInputUIProps> = ({placeholder}) => {
+  const inputRef = useRef<HTMLInputElement>(null)
+  const onUploadClick = () => {
+    inputRef.current?.click();
+  }
 
   return (
     <div>
@@ -18,6 +21,12 @@ export const CloudinaryInputUi: FC<CloudinaryInputUiProps> = ({placeholder}) => 
       />
       <Card variant="outlined">
         <CardHeader title={placeholder}/>
+        <CardContent>
+          <Skeleton  variant="rectangular" width={384} height={247}/>
+        </CardContent>
+        <CardActions>
+          <Button variant="contained" onClick={onUploadClick}>Завантажити</Button>
+        </CardActions>
       </Card>
     </div>
   );

@@ -1,12 +1,18 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { CloudinaryInputUi } from "@app/common/components/cloudinary-input-ui.component";
+import { CloudinaryInputUI } from "@app/common/components/cloudinary-input-ui.component";
+import { theme } from '@app/core/theme';
+import { ThemeProvider } from 'react-admin';
 
 export default {
   title: 'Common/Cloudinary Input',
-  component: CloudinaryInputUi,
-} as ComponentMeta<typeof CloudinaryInputUi>;
+  component: CloudinaryInputUI,
+} as ComponentMeta<typeof CloudinaryInputUI>;
 
-const Template: ComponentStory<typeof CloudinaryInputUi> = (args) => <CloudinaryInputUi {...args} />;
+const Template: ComponentStory<typeof CloudinaryInputUI> = (args) => (
+  <ThemeProvider theme={theme}>
+    <CloudinaryInputUI {...args} />
+  </ThemeProvider>
+);
 
 export const View = Template.bind({});
 
