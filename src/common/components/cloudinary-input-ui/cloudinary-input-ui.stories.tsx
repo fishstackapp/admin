@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { CloudinaryInputUI } from "@app/common/components/cloudinary-input-ui.component";
+import { CloudinaryInputUI } from "@app/common/components/cloudinary-input-ui/cloudinary-input-ui.component";
 import { theme } from '@app/core/theme';
 import { ThemeProvider } from 'react-admin';
 
@@ -17,6 +17,6 @@ const Template: ComponentStory<typeof CloudinaryInputUI> = (args) => (
 export const View = Template.bind({});
 
 View.args = {
-  placeholder: 'Головне зображення'
+  label: 'Головне зображення'
 }
 
