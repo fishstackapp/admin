@@ -1,8 +1,8 @@
-import { apolloClient } from "@app/core/apollo-client";
-import { AdminGetMeQuery, AdminLoginQuery, AdminLoginQueryVariables } from "@app/core/types";
+import { apolloClient } from "./apollo-client";
+import { AdminGetMeQuery, AdminLoginQuery, AdminLoginQueryVariables } from "./types";
 import AdminLoginQueryGql from '@app/core/graphql/admin-login.gql';
 import AdminGetMeQueryGql from '@app/core/graphql/admin-get-me.gql';
-import { JWT_ADMIN_TOKEN } from '@app/core/constants';
+import { JWT_ADMIN_TOKEN } from "./constants";
 
 export const authProvider = {
     login: async (variables: AdminLoginQueryVariables) => {

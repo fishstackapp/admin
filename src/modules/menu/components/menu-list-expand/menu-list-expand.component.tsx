@@ -1,4 +1,4 @@
-import { Menu } from "@app/core/types"
+import { Menu } from "src/core/types"
 import { Typography } from "@mui/material";
 import { useRecordContext } from "react-admin"
 

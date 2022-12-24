@@ -1,6 +1,6 @@
-import { Datagrid, EditButton, FunctionField, List, TextField, TextInput } from 'react-admin';
-import { MenuListExpend } from '@app/modules/menu/components/menu-list-expand/menu-list-expand.component';
 import { Menu } from '@app/core/types';
+import { Datagrid, EditButton, FunctionField, List, TextField, TextInput } from 'react-admin';
+import { MenuListExpend } from '../menu-list-expand/menu-list-expand.component';
 
 const filters = [
     <TextInput source='title' label='Пошук по назві'/>

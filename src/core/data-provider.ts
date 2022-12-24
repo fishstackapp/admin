@@ -1,6 +1,10 @@
-import { apolloClient } from '@app/core/apollo-client';
-import buildHasuraProvider from 'ra-data-hasura';
-import { DataProvider } from 'react-admin';
+// import { apolloClient } from '@app/core/apollo-client';
+// import buildHasuraProvider from 'ra-data-hasura';
+// import { DataProvider } from 'react-admin';
+
+import { DataProvider } from "react-admin";
+import buildHasuraProvider from 'ra-data-hasura'
+import { apolloClient } from "./apollo-client";
 
 export const buildDataProvider = async () => {
   const dataProviderHasura = await buildHasuraProvider({

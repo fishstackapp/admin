@@ -669,7 +669,7 @@ export type Query_Root = {
   admin_aggregate: Admin_Aggregate;
   /** fetch data from the table: "admin" using primary key columns */
   admin_by_pk?: Maybe<Admin>;
-  /** Cloud signature */
+  /** Cloudinary signature */
   cloudinarySignature?: Maybe<CloudinarySignatureOutput>;
   /** fetch data from the table: "menu" */
   menu: Array<Menu>;

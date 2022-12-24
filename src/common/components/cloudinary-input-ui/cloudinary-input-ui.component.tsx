@@ -1,3 +1,5 @@
+import { cloudinary } from "@app/core/cloudinary";
+import { AdvancedImage } from "@cloudinary/react";
 import { Card, CardHeader, CardContent, Skeleton, CardActions, Button } from "@mui/material";
 import { FC, useRef } from "react";
 
@@ -23,6 +25,10 @@ export const CloudinaryInputUI: FC<CloudinaryInputUIProps> = ({label,disabled, o
     inputRef.current?.click();
   }
 
+  const image = cloudinary.image(value);
+
+  image.addTransformation('w_384,h_240,dpr_2.0');
+
   return (
     <div style={{marginBottom: 20}}>
       <input 
@@ -36,13 +42,7 @@ export const CloudinaryInputUI: FC<CloudinaryInputUIProps> = ({label,disabled, o
         <CardHeader title={label}/>
         <CardContent>
           {value ? (
-            <img 
-              src={value} 
-              alt={`${label} upload`} 
-              width={384} 
-              height={240} 
-              style={{objectPosition: 'center', objectFit: 'cover'}}
-            />
+            <AdvancedImage cldImg={image} width={384} height={240}/>
           ) : (
             <Skeleton  variant="rectangular" width={384} height={240}/>
           )}

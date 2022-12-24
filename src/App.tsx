@@ -2,13 +2,13 @@ import { Admin, DataProvider, Loading, Resource } from "react-admin";
 import { CssBaseline } from "@mui/material";
 import React, { useState, useEffect } from 'react';
 import buildHasuraProvider from 'ra-data-hasura';
-import { MenuList } from "@app/modules/menu/components/menu-list/menu-list.component";
-import { MenuEdit } from "@app/modules/menu/components/menu-edit/menu-edit.component";
-import { MenuCreate } from "@app/modules/menu/components/menu-create/menu-create.component";
-import { authProvider } from "@app/core/auth-provider";
-import { apolloClient } from "@app/core/apollo-client";
-import { theme } from "./core/theme";
+import { apolloClient } from "./core/apollo-client";
 import { i18nProvider } from "./core/i18n";
+import { authProvider } from "./core/auth-provider";
+import { theme } from "./core/theme";
+import { MenuList } from "./modules/menu/components/menu-list/menu-list.component";
+import { MenuEdit } from "./modules/menu/components/menu-edit/menu-edit.component";
+import { MenuCreate } from "./modules/menu/components/menu-create/menu-create.component";
 
 
 export const App = () => {
