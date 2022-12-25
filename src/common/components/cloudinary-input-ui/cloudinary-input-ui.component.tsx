@@ -8,9 +8,10 @@ interface CloudinaryInputUIProps {
   disabled: boolean;
   onImageSelected: (image: File) => void;
   value?: string;
+  fitImage?: boolean,
 }
 
-export const CloudinaryInputUI: FC<CloudinaryInputUIProps> = ({label,disabled, onImageSelected, value}) => {
+export const CloudinaryInputUI: FC<CloudinaryInputUIProps> = ({label,disabled, onImageSelected, value, fitImage}) => {
   const inputRef = useRef<HTMLInputElement>(null)
   const onInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     if(!e.target.files){
@@ -26,8 +27,13 @@ export const CloudinaryInputUI: FC<CloudinaryInputUIProps> = ({label,disabled, o
   }
 
   const image = cloudinary.image(value);
+  const transformations = ['w_384', 'h_240', 'dpr_2.0'];
 
-  image.addTransformation('w_384,h_240,dpr_2.0');
+  if (fitImage) {
+    transformations.push('c_pad');
+  }
+
+  image.addTransformation(transformations.join(','));
 
   return (
     <div style={{marginBottom: 20}}>

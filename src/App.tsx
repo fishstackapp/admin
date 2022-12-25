@@ -9,6 +9,9 @@ import { theme } from "./core/theme";
 import { MenuList } from "./modules/menu/components/menu-list/menu-list.component";
 import { MenuEdit } from "./modules/menu/components/menu-edit/menu-edit.component";
 import { MenuCreate } from "./modules/menu/components/menu-create/menu-create.component";
+import { CategoryList } from "./modules/category/components/category-list/category-list.component";
+import { CategoryEdit } from "./modules/category/components/category-edit/category-edit.component";
+import { CategoryCreate } from "./modules/category/components/category-create/menu-create.component";
 
 
 export const App = () => {
@@ -46,6 +49,13 @@ export const App = () => {
           edit={MenuEdit}
           create={MenuCreate}
           options={{label: "Меню"}}
+        />
+        <Resource
+          name="categories"
+          list={CategoryList}
+          edit={CategoryEdit}
+          create={CategoryCreate}
+          options={{label: 'Категорії'}}
         />
       </Admin>
     </>

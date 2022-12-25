@@ -4,6 +4,7 @@ import axios, { AxiosError } from 'axios'
 import { CloudinaryUploadDTO } from "./cloudinary-upload.dto";
 import { CloudinaryInputUI } from "../cloudinary-input-ui/cloudinary-input-ui.component";
 import { useCloudinarySignatureQuery } from "@app/core/types";
+import { config } from "@app/core/config";
 
 export const CloudinaryInput: FC<InputProps> = (props) => {
   const {label, source} = props;
@@ -43,12 +44,18 @@ export const CloudinaryInput: FC<InputProps> = (props) => {
     onChange(data!.public_id);
   }
 
+  const {
+    field: { value: categoryId },
+  } = useInput({ source: 'category_id' });
+  const isDrinkCategory = categoryId === config.drinksCategoryId  
+
   return (
     <CloudinaryInputUI 
       label={computedLable} 
       value={value}
       disabled={loading}
       onImageSelected={onImageSelected}
+      fitImage={isDrinkCategory}
     />
   )
 }
