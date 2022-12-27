@@ -1,4 +1,4 @@
 export const config = {
   hasuraEndpoint: process.env.REACT_APP_HASURA_ENDPOINT,
-  drinksCategoryId: process.env.REACT_APP_DRINKS_CATEGORY_ID,
+  snackCategoryId: process.env.REACT_APP_SNACK_CATEGORY_ID,
 };
