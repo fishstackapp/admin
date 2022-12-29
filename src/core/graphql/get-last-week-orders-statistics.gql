@@ -1,0 +1,7 @@
+query GetLastWeekOrdersStatistics {
+  last_week_orders {
+    count
+    date
+    sum
+  }
+}

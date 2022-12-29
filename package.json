@@ -9,6 +9,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@graphql-codegen/typescript-react-apollo": "^3.3.7",
+    "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -19,19 +20,23 @@
     "@types/react-dom": "^18.0.9",
     "axios": "^1.2.1",
     "graphql": "^16.6.0",
+    "luxon": "^3.1.1",
     "ra-data-hasura": "^0.5.4",
     "ra-i18n-polyglot": "^4.6.2",
     "ra-language-ukrainian": "^2.5.0",
     "react": "^18.2.0",
     "react-admin": "^4.6.1",
     "react-dom": "^18.2.0",
+    "react-hook-form": "7.40.0",
+    "react-router-dom": "^6.6.1",
     "react-scripts": "^5.0.1",
+    "recharts": "^2.2.0",
     "typescript": "^4.9.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build",
+    "build": "CI=true craco build",
     "test": "craco test",
     "codegen": "graphql-codegen --config codegen.yml",
     "storybook": "start-storybook -p 6006 -s public",
@@ -46,7 +51,7 @@
       {
         "files": [
           "**/*.stories.*",
-          "**/*.tsx"
+          "**/*.tsx*"
         ],
         "rules": {
           "import/no-anonymous-default-export": "off",
@@ -82,6 +87,7 @@
     "@storybook/preset-create-react-app": "^4.1.2",
     "@storybook/react": "^6.5.14",
     "@storybook/testing-library": "^0.0.13",
+    "@types/luxon": "^3.1.0",
     "babel-plugin-named-exports-order": "^0.0.2",
     "graphql-tag": "^2.12.6",
     "prop-types": "^15.8.1",

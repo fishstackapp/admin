@@ -3,8 +3,8 @@ import { InputProps, useInput, useNotify } from "react-admin"
 import axios, { AxiosError } from 'axios'
 import { CloudinaryUploadDTO } from "./cloudinary-upload.dto";
 import { CloudinaryInputUI } from "../cloudinary-input-ui/cloudinary-input-ui.component";
-import { useCloudinarySignatureQuery } from "@app/core/types";
-import { config } from "@app/core/config";
+import { useCloudinarySignatureQuery, useGetSettingsQuery } from "@app/core/types";
+
 
 export const CloudinaryInput: FC<InputProps> = (props) => {
   const {label, source} = props;
@@ -12,6 +12,7 @@ export const CloudinaryInput: FC<InputProps> = (props) => {
   const { data: cloudSignature, loading } = useCloudinarySignatureQuery({
     fetchPolicy: 'network-only',
   });
+  const {data: settings} = useGetSettingsQuery({fetchPolicy: 'cache-only'})
 
   const notify = useNotify();
 
@@ -47,7 +48,7 @@ export const CloudinaryInput: FC<InputProps> = (props) => {
   const {
     field: { value: categoryId },
   } = useInput({ source: 'category_id' });
-  const isDrinkCategory = categoryId === config.drinksCategoryId  
+  const isSnackCategory = categoryId === settings?.settings[0].snacks_category;  
 
   return (
     <CloudinaryInputUI 
@@ -55,7 +56,7 @@ export const CloudinaryInput: FC<InputProps> = (props) => {
       value={value}
       disabled={loading}
       onImageSelected={onImageSelected}
-      fitImage={isDrinkCategory}
+      fitImage={isSnackCategory}
     />
   )
 }
