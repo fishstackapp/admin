@@ -36,7 +36,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build",
+    "build": "CI=true craco build",
     "test": "craco test",
     "codegen": "graphql-codegen --config codegen.yml",
     "storybook": "start-storybook -p 6006 -s public",
@@ -50,7 +50,8 @@
     "overrides": [
       {
         "files": [
-          "**/*.stories.*"
+          "**/*.stories.*",
+          "**/*.tsx*"
         ],
         "rules": {
           "import/no-anonymous-default-export": "off",
