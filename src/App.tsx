@@ -12,6 +12,7 @@ import { menuResource } from './modules/menu/menu.resource';
 import { categoryResource } from './modules/category/category.resource';
 import { ordersResource } from './modules/orders/orders.resource';
 import { useGetSettingsQuery } from './core/types';
+import { DashBoard } from './modules/dashboard/components/dashboard/dashboard.component';
 
 export const App = () => {
   const {data: settings} = useGetSettingsQuery();
@@ -43,6 +44,7 @@ export const App = () => {
         requireAuth
         theme={theme}
         layout={Layout}
+        dashboard={DashBoard}
       >
         <Resource {...menuResource} />
         <Resource {...categoryResource} />
@@ -50,6 +52,7 @@ export const App = () => {
         <Resource name="settings" />
         <Resource name="order_status" />
         <Resource name="orders_menu" />
+        <Resource name="last_week_orders" />
         <CustomRoutes>
           <Route path="/settings" element={<SettingEdit />} />
         </CustomRoutes>

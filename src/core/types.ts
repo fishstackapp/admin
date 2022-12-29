@@ -13,7 +13,10 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  bigint: any;
+  date: any;
   numeric: any;
+  timestamptz: any;
   uuid: any;
 };
 
@@ -245,6 +248,19 @@ export type Admin_Updates = {
   where: Admin_Bool_Exp;
 };
 
+/** Boolean expression to compare columns of type "bigint". All fields are combined with logical 'AND'. */
+export type Bigint_Comparison_Exp = {
+  _eq?: InputMaybe<Scalars['bigint']>;
+  _gt?: InputMaybe<Scalars['bigint']>;
+  _gte?: InputMaybe<Scalars['bigint']>;
+  _in?: InputMaybe<Array<Scalars['bigint']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _lt?: InputMaybe<Scalars['bigint']>;
+  _lte?: InputMaybe<Scalars['bigint']>;
+  _neq?: InputMaybe<Scalars['bigint']>;
+  _nin?: InputMaybe<Array<Scalars['bigint']>>;
+};
+
 /** columns and relationships of "categories" */
 export type Categories = {
   __typename?: 'categories';
@@ -432,6 +448,171 @@ export enum Cursor_Ordering {
   /** descending ordering of the cursor */
   Desc = 'DESC'
 }
+
+/** Boolean expression to compare columns of type "date". All fields are combined with logical 'AND'. */
+export type Date_Comparison_Exp = {
+  _eq?: InputMaybe<Scalars['date']>;
+  _gt?: InputMaybe<Scalars['date']>;
+  _gte?: InputMaybe<Scalars['date']>;
+  _in?: InputMaybe<Array<Scalars['date']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _lt?: InputMaybe<Scalars['date']>;
+  _lte?: InputMaybe<Scalars['date']>;
+  _neq?: InputMaybe<Scalars['date']>;
+  _nin?: InputMaybe<Array<Scalars['date']>>;
+};
+
+/** columns and relationships of "last_week_orders" */
+export type Last_Week_Orders = {
+  __typename?: 'last_week_orders';
+  count?: Maybe<Scalars['bigint']>;
+  date?: Maybe<Scalars['date']>;
+  sum?: Maybe<Scalars['numeric']>;
+};
+
+/** aggregated selection of "last_week_orders" */
+export type Last_Week_Orders_Aggregate = {
+  __typename?: 'last_week_orders_aggregate';
+  aggregate?: Maybe<Last_Week_Orders_Aggregate_Fields>;
+  nodes: Array<Last_Week_Orders>;
+};
+
+/** aggregate fields of "last_week_orders" */
+export type Last_Week_Orders_Aggregate_Fields = {
+  __typename?: 'last_week_orders_aggregate_fields';
+  avg?: Maybe<Last_Week_Orders_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Last_Week_Orders_Max_Fields>;
+  min?: Maybe<Last_Week_Orders_Min_Fields>;
+  stddev?: Maybe<Last_Week_Orders_Stddev_Fields>;
+  stddev_pop?: Maybe<Last_Week_Orders_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Last_Week_Orders_Stddev_Samp_Fields>;
+  sum?: Maybe<Last_Week_Orders_Sum_Fields>;
+  var_pop?: Maybe<Last_Week_Orders_Var_Pop_Fields>;
+  var_samp?: Maybe<Last_Week_Orders_Var_Samp_Fields>;
+  variance?: Maybe<Last_Week_Orders_Variance_Fields>;
+};
+
+
+/** aggregate fields of "last_week_orders" */
+export type Last_Week_Orders_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Last_Week_Orders_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Last_Week_Orders_Avg_Fields = {
+  __typename?: 'last_week_orders_avg_fields';
+  count?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "last_week_orders". All fields are combined with a logical 'AND'. */
+export type Last_Week_Orders_Bool_Exp = {
+  _and?: InputMaybe<Array<Last_Week_Orders_Bool_Exp>>;
+  _not?: InputMaybe<Last_Week_Orders_Bool_Exp>;
+  _or?: InputMaybe<Array<Last_Week_Orders_Bool_Exp>>;
+  count?: InputMaybe<Bigint_Comparison_Exp>;
+  date?: InputMaybe<Date_Comparison_Exp>;
+  sum?: InputMaybe<Numeric_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Last_Week_Orders_Max_Fields = {
+  __typename?: 'last_week_orders_max_fields';
+  count?: Maybe<Scalars['bigint']>;
+  date?: Maybe<Scalars['date']>;
+  sum?: Maybe<Scalars['numeric']>;
+};
+
+/** aggregate min on columns */
+export type Last_Week_Orders_Min_Fields = {
+  __typename?: 'last_week_orders_min_fields';
+  count?: Maybe<Scalars['bigint']>;
+  date?: Maybe<Scalars['date']>;
+  sum?: Maybe<Scalars['numeric']>;
+};
+
+/** Ordering options when selecting data from "last_week_orders". */
+export type Last_Week_Orders_Order_By = {
+  count?: InputMaybe<Order_By>;
+  date?: InputMaybe<Order_By>;
+  sum?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "last_week_orders" */
+export enum Last_Week_Orders_Select_Column {
+  /** column name */
+  Count = 'count',
+  /** column name */
+  Date = 'date',
+  /** column name */
+  Sum = 'sum'
+}
+
+/** aggregate stddev on columns */
+export type Last_Week_Orders_Stddev_Fields = {
+  __typename?: 'last_week_orders_stddev_fields';
+  count?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Last_Week_Orders_Stddev_Pop_Fields = {
+  __typename?: 'last_week_orders_stddev_pop_fields';
+  count?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Last_Week_Orders_Stddev_Samp_Fields = {
+  __typename?: 'last_week_orders_stddev_samp_fields';
+  count?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+};
+
+/** Streaming cursor of the table "last_week_orders" */
+export type Last_Week_Orders_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Last_Week_Orders_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Last_Week_Orders_Stream_Cursor_Value_Input = {
+  count?: InputMaybe<Scalars['bigint']>;
+  date?: InputMaybe<Scalars['date']>;
+  sum?: InputMaybe<Scalars['numeric']>;
+};
+
+/** aggregate sum on columns */
+export type Last_Week_Orders_Sum_Fields = {
+  __typename?: 'last_week_orders_sum_fields';
+  count?: Maybe<Scalars['bigint']>;
+  sum?: Maybe<Scalars['numeric']>;
+};
+
+/** aggregate var_pop on columns */
+export type Last_Week_Orders_Var_Pop_Fields = {
+  __typename?: 'last_week_orders_var_pop_fields';
+  count?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Last_Week_Orders_Var_Samp_Fields = {
+  __typename?: 'last_week_orders_var_samp_fields';
+  count?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Last_Week_Orders_Variance_Fields = {
+  __typename?: 'last_week_orders_variance_fields';
+  count?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+};
 
 /** columns and relationships of "menu" */
 export type Menu = {
@@ -1438,6 +1619,7 @@ export type Orders = {
   client_address: Scalars['String'];
   client_name: Scalars['String'];
   client_phone: Scalars['String'];
+  created_at: Scalars['timestamptz'];
   id: Scalars['uuid'];
   /** An array relationship */
   order_items: Array<Orders_Menu>;
@@ -1498,6 +1680,7 @@ export type Orders_Bool_Exp = {
   client_address?: InputMaybe<String_Comparison_Exp>;
   client_name?: InputMaybe<String_Comparison_Exp>;
   client_phone?: InputMaybe<String_Comparison_Exp>;
+  created_at?: InputMaybe<Timestamptz_Comparison_Exp>;
   id?: InputMaybe<Uuid_Comparison_Exp>;
   order_items?: InputMaybe<Orders_Menu_Bool_Exp>;
   order_items_aggregate?: InputMaybe<Orders_Menu_Aggregate_Bool_Exp>;
@@ -1516,6 +1699,7 @@ export type Orders_Insert_Input = {
   client_address?: InputMaybe<Scalars['String']>;
   client_name?: InputMaybe<Scalars['String']>;
   client_phone?: InputMaybe<Scalars['String']>;
+  created_at?: InputMaybe<Scalars['timestamptz']>;
   id?: InputMaybe<Scalars['uuid']>;
   order_items?: InputMaybe<Orders_Menu_Arr_Rel_Insert_Input>;
   status?: InputMaybe<Order_Status_Enum>;
@@ -1527,6 +1711,7 @@ export type Orders_Max_Fields = {
   client_address?: Maybe<Scalars['String']>;
   client_name?: Maybe<Scalars['String']>;
   client_phone?: Maybe<Scalars['String']>;
+  created_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['uuid']>;
 };
 
@@ -1725,6 +1910,7 @@ export type Orders_Min_Fields = {
   client_address?: Maybe<Scalars['String']>;
   client_name?: Maybe<Scalars['String']>;
   client_phone?: Maybe<Scalars['String']>;
+  created_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['uuid']>;
 };
 
@@ -1749,6 +1935,7 @@ export type Orders_Order_By = {
   client_address?: InputMaybe<Order_By>;
   client_name?: InputMaybe<Order_By>;
   client_phone?: InputMaybe<Order_By>;
+  created_at?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
   order_items_aggregate?: InputMaybe<Orders_Menu_Aggregate_Order_By>;
   status?: InputMaybe<Order_By>;
@@ -1769,6 +1956,8 @@ export enum Orders_Select_Column {
   /** column name */
   ClientPhone = 'client_phone',
   /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
   Id = 'id',
   /** column name */
   Status = 'status'
@@ -1779,6 +1968,7 @@ export type Orders_Set_Input = {
   client_address?: InputMaybe<Scalars['String']>;
   client_name?: InputMaybe<Scalars['String']>;
   client_phone?: InputMaybe<Scalars['String']>;
+  created_at?: InputMaybe<Scalars['timestamptz']>;
   id?: InputMaybe<Scalars['uuid']>;
   status?: InputMaybe<Order_Status_Enum>;
 };
@@ -1796,6 +1986,7 @@ export type Orders_Stream_Cursor_Value_Input = {
   client_address?: InputMaybe<Scalars['String']>;
   client_name?: InputMaybe<Scalars['String']>;
   client_phone?: InputMaybe<Scalars['String']>;
+  created_at?: InputMaybe<Scalars['timestamptz']>;
   id?: InputMaybe<Scalars['uuid']>;
   status?: InputMaybe<Order_Status_Enum>;
 };
@@ -1808,6 +1999,8 @@ export enum Orders_Update_Column {
   ClientName = 'client_name',
   /** column name */
   ClientPhone = 'client_phone',
+  /** column name */
+  CreatedAt = 'created_at',
   /** column name */
   Id = 'id',
   /** column name */
@@ -1840,6 +2033,10 @@ export type Query_Root = {
   categories_by_pk?: Maybe<Categories>;
   /** Cloudinary signature */
   cloudinarySignature?: Maybe<CloudinarySignatureOutput>;
+  /** fetch data from the table: "last_week_orders" */
+  last_week_orders: Array<Last_Week_Orders>;
+  /** fetch aggregated fields from the table: "last_week_orders" */
+  last_week_orders_aggregate: Last_Week_Orders_Aggregate;
   /** fetch data from the table: "menu" */
   menu: Array<Menu>;
   /** fetch aggregated fields from the table: "menu" */
@@ -1921,6 +2118,24 @@ export type Query_RootCategories_AggregateArgs = {
 
 export type Query_RootCategories_By_PkArgs = {
   id: Scalars['uuid'];
+};
+
+
+export type Query_RootLast_Week_OrdersArgs = {
+  distinct_on?: InputMaybe<Array<Last_Week_Orders_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Last_Week_Orders_Order_By>>;
+  where?: InputMaybe<Last_Week_Orders_Bool_Exp>;
+};
+
+
+export type Query_RootLast_Week_Orders_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Last_Week_Orders_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Last_Week_Orders_Order_By>>;
+  where?: InputMaybe<Last_Week_Orders_Bool_Exp>;
 };
 
 
@@ -2189,6 +2404,12 @@ export type Subscription_Root = {
   categories_by_pk?: Maybe<Categories>;
   /** fetch data from the table in a streaming manner: "categories" */
   categories_stream: Array<Categories>;
+  /** fetch data from the table: "last_week_orders" */
+  last_week_orders: Array<Last_Week_Orders>;
+  /** fetch aggregated fields from the table: "last_week_orders" */
+  last_week_orders_aggregate: Last_Week_Orders_Aggregate;
+  /** fetch data from the table in a streaming manner: "last_week_orders" */
+  last_week_orders_stream: Array<Last_Week_Orders>;
   /** fetch data from the table: "menu" */
   menu: Array<Menu>;
   /** fetch aggregated fields from the table: "menu" */
@@ -2289,6 +2510,31 @@ export type Subscription_RootCategories_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Categories_Stream_Cursor_Input>>;
   where?: InputMaybe<Categories_Bool_Exp>;
+};
+
+
+export type Subscription_RootLast_Week_OrdersArgs = {
+  distinct_on?: InputMaybe<Array<Last_Week_Orders_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Last_Week_Orders_Order_By>>;
+  where?: InputMaybe<Last_Week_Orders_Bool_Exp>;
+};
+
+
+export type Subscription_RootLast_Week_Orders_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Last_Week_Orders_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Last_Week_Orders_Order_By>>;
+  where?: InputMaybe<Last_Week_Orders_Bool_Exp>;
+};
+
+
+export type Subscription_RootLast_Week_Orders_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<InputMaybe<Last_Week_Orders_Stream_Cursor_Input>>;
+  where?: InputMaybe<Last_Week_Orders_Bool_Exp>;
 };
 
 
@@ -2441,6 +2687,19 @@ export type Subscription_RootSettings_StreamArgs = {
   where?: InputMaybe<Settings_Bool_Exp>;
 };
 
+/** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
+export type Timestamptz_Comparison_Exp = {
+  _eq?: InputMaybe<Scalars['timestamptz']>;
+  _gt?: InputMaybe<Scalars['timestamptz']>;
+  _gte?: InputMaybe<Scalars['timestamptz']>;
+  _in?: InputMaybe<Array<Scalars['timestamptz']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _lt?: InputMaybe<Scalars['timestamptz']>;
+  _lte?: InputMaybe<Scalars['timestamptz']>;
+  _neq?: InputMaybe<Scalars['timestamptz']>;
+  _nin?: InputMaybe<Array<Scalars['timestamptz']>>;
+};
+
 /** Boolean expression to compare columns of type "uuid". All fields are combined with logical 'AND'. */
 export type Uuid_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['uuid']>;
@@ -2471,6 +2730,11 @@ export type CloudinarySignatureQueryVariables = Exact<{ [key: string]: never; }>
 
 
 export type CloudinarySignatureQuery = { __typename?: 'query_root', cloudinarySignature?: { __typename?: 'CloudinarySignatureOutput', apiKey: string, cloudName: string, publicId: string, signature: string, timestamp: number } | null };
+
+export type GetLastWeekOrdersStatisticsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetLastWeekOrdersStatisticsQuery = { __typename?: 'query_root', last_week_orders: Array<{ __typename?: 'last_week_orders', count?: any | null, date?: any | null, sum?: any | null }> };
 
 export type GetSettingsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2587,6 +2851,42 @@ export function useCloudinarySignatureLazyQuery(baseOptions?: Apollo.LazyQueryHo
 export type CloudinarySignatureQueryHookResult = ReturnType<typeof useCloudinarySignatureQuery>;
 export type CloudinarySignatureLazyQueryHookResult = ReturnType<typeof useCloudinarySignatureLazyQuery>;
 export type CloudinarySignatureQueryResult = Apollo.QueryResult<CloudinarySignatureQuery, CloudinarySignatureQueryVariables>;
+export const GetLastWeekOrdersStatisticsDocument = gql`
+    query GetLastWeekOrdersStatistics {
+  last_week_orders {
+    count
+    date
+    sum
+  }
+}
+    `;
+
+/**
+ * __useGetLastWeekOrdersStatisticsQuery__
+ *
+ * To run a query within a React component, call `useGetLastWeekOrdersStatisticsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetLastWeekOrdersStatisticsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetLastWeekOrdersStatisticsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetLastWeekOrdersStatisticsQuery(baseOptions?: Apollo.QueryHookOptions<GetLastWeekOrdersStatisticsQuery, GetLastWeekOrdersStatisticsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetLastWeekOrdersStatisticsQuery, GetLastWeekOrdersStatisticsQueryVariables>(GetLastWeekOrdersStatisticsDocument, options);
+      }
+export function useGetLastWeekOrdersStatisticsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetLastWeekOrdersStatisticsQuery, GetLastWeekOrdersStatisticsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetLastWeekOrdersStatisticsQuery, GetLastWeekOrdersStatisticsQueryVariables>(GetLastWeekOrdersStatisticsDocument, options);
+        }
+export type GetLastWeekOrdersStatisticsQueryHookResult = ReturnType<typeof useGetLastWeekOrdersStatisticsQuery>;
+export type GetLastWeekOrdersStatisticsLazyQueryHookResult = ReturnType<typeof useGetLastWeekOrdersStatisticsLazyQuery>;
+export type GetLastWeekOrdersStatisticsQueryResult = Apollo.QueryResult<GetLastWeekOrdersStatisticsQuery, GetLastWeekOrdersStatisticsQueryVariables>;
 export const GetSettingsDocument = gql`
     query GetSettings {
   settings {
