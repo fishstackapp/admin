@@ -13,6 +13,7 @@ import { categoryResource } from './modules/category/category.resource';
 import { ordersResource } from './modules/orders/orders.resource';
 import { useGetSettingsQuery } from './core/types';
 import { DashBoard } from './modules/dashboard/components/dashboard/dashboard.component';
+import { customerResource } from './modules/customers/customers.resource';
 
 export const App = () => {
   const {data: settings} = useGetSettingsQuery();
@@ -49,6 +50,7 @@ export const App = () => {
         <Resource {...menuResource} />
         <Resource {...categoryResource} />
         <Resource {...ordersResource} />
+        <Resource {...customerResource} />
         <Resource name="settings" />
         <Resource name="order_status" />
         <Resource name="orders_menu" />

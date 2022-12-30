@@ -18,7 +18,7 @@ export const DashBoard = () => {
           <Grid item xs={12}>
             <Card variant="outlined">
               <CardContent>
-                <Typography variant="h6" sx={{ marginBottom: '32px' }}>Останні нові замовлення</Typography>
+                <Typography variant="h6">Останні нові замовлення</Typography>
                 {/* <NewOrders /> */}
               </CardContent>
             </Card>
@@ -26,10 +26,10 @@ export const DashBoard = () => {
           <Grid item xs={12}>
             <Card variant="outlined">
               <CardContent>
-                <Typography variant="h6" sx={{ marginBottom: '32px' }}>
+                <Typography variant="h6">
                   Продажі за останній тиждень
                 </Typography>
-                <FinanceChart data={data?.last_week_orders ?? []} />
+                <FinanceChart  data={data?.last_week_orders ?? []} />
               </CardContent>
             </Card>
           </Grid>
