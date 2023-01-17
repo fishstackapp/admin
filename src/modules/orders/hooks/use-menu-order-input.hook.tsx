@@ -1,6 +1,6 @@
-import { getManyReferenceFilter } from '@app/common/data/get-many-reference-filter';
 import { useDataProvider } from 'react-admin';
-import { JoinedOrdersMenuItem } from '../order.types';
+import { getManyReferenceFilter } from '@app/common/data/get-many-reference-filter';
+import { JoinedOrdersMenuItem } from '@app/modules/orders/order.types';
 
 interface MutateOptions {
   id: string;

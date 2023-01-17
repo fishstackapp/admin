@@ -38,13 +38,14 @@ export const OrderShow = () => {
           render={(record: Orders) => record.comment ?? 'Коментар порожній'}
         />
         <ReferenceManyField reference="orders_menu" target="order_id" label="Список замовлення">
-          <Datagrid bulkActionButtons={false} header={<></>} hover={false}>
-            <ReferenceField reference="menu" source="menu_id" link={false}>
+          <Datagrid bulkActionButtons={false} hover={false}>
+            <ReferenceField reference="menu" source="menu_id" link={false} label="Назва">
               <TextField source="title" />
             </ReferenceField>
-            <ReferenceField reference="menu" source="menu_id" link={false}>
+            <ReferenceField reference="menu" source="menu_id" link={false} label="Ціна">
               <FunctionField label="Ціна" render={(record: Menu) => `${record.price} грн`} />
             </ReferenceField>
+            <TextField source="amount" label="Кількість" />
           </Datagrid>
         </ReferenceManyField>
       </SimpleShowLayout>
