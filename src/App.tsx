@@ -14,6 +14,7 @@ import { ordersResource } from './modules/orders/orders.resource';
 import { useGetSettingsQuery } from './core/types';
 import { DashBoard } from './modules/dashboard/components/dashboard/dashboard.component';
 import { customerResource } from './modules/customers/customers.resource';
+import OneSignalReact from 'react-onesignal';
 
 export const App = () => {
   const {data: settings} = useGetSettingsQuery();
@@ -30,6 +31,10 @@ export const App = () => {
 
     getdDataProvider();
   }, []);
+
+  useEffect(() => {
+    OneSignalReact.init({appId: "536ae661-1045-4dac-8254-77ef4b65a420"})
+  },[])
 
   if (!dataProvider || !settings) {
     return <Loading />;
