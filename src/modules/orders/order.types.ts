@@ -11,5 +11,5 @@ export interface OrderForm {
   client_name: string;
   client_phone: string;
   status: string;
-  joined_orders_menu: string[];
+  joined_orders_menu: JoinedOrdersMenuItem[];
 }

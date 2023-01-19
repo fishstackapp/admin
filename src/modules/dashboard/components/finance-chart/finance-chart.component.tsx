@@ -10,9 +10,9 @@ interface FinanceChartProps {
 
 export const FinanceChart: FC<FinanceChartProps> = ({data}) => {
   return (
-    <BarChart width={730} height={250} data={data}>
+    <BarChart width={789} height={250} data={data}>
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="date" />
+      <XAxis dataKey="date"/>
       <YAxis />
       <Tooltip content={<FinanceChartTooltip />} />
       <Bar dataKey="sum" fill="#0EA5E9" />

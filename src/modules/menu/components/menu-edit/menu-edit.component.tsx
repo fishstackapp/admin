@@ -1,11 +1,11 @@
 import { Edit, NumberInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from "react-admin";
 import { CloudinaryInput } from "@app/common/components/cloudinary-input/cloudinary-input.component";
-import { EditTitle } from "@app/common/components/edit-title/edit-title.component";
+import { CustomTitle } from "@app/common/components/custom-title/custom-title.component";
 
 export const MenuEdit = () => {
 
     return (
-        <Edit title={<EditTitle source="title"/>} mutationMode="pessimistic">
+        <Edit title={<CustomTitle source="title"/>} mutationMode="pessimistic">
             <SimpleForm>
                 <TextInput source="title" fullWidth label="Назва"/>
                 <ReferenceInput source="category_id" reference="categories">

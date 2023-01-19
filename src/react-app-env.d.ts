@@ -6,4 +6,3 @@ declare module '*.gql' {
 }
 
 declare module 'ra-language-ukrainian';
-declare module 'ra-language-ukrainian';

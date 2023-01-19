@@ -1,33 +1,29 @@
-import { ManyToManyInput } from '@app/common/components/many-to-many-input/many-to-many-input.component';
-import { useManyToManyInput } from '@app/common/hooks/use-many-to-many-input.hook';
-import { Order_Status_Enum } from '@app/core/types';
-import { OrderForm } from '../../order.types';
 import { useRef } from 'react';
+import { Order_Status_Enum } from '@app/core/types';
+import { MenuOrderInput } from '@app/modules/orders/components/menu-order-input/menu-order-input.component';
+import { useMenuOrderInput } from '@app/modules/orders/hooks/use-menu-order-input.hook';
+import { JoinedOrdersMenuItem, OrderForm } from '@app/modules/orders/order.types';
 import {
-  SelectInput,
+  Create,
   ReferenceInput,
+  SelectInput,
   SimpleForm,
   TextInput,
-  Create,
   useRedirect,
 } from 'react-admin';
 
 export const OrderCreate = () => {
-  const { mutateJoinResource, fieldsProps } = useManyToManyInput({
-    joinResource: 'orders_menu',
-    resourceField: 'orders_id',
-    referenceField: 'menu_id',
-  });
+  const { mutate } = useMenuOrderInput();
 
-  const newReferences = useRef<string[]>([]);
-  const transform = async (data: OrderForm) => {
+  const newReferences = useRef<JoinedOrdersMenuItem[]>([]);
+  const transform = (data: OrderForm) => {
     newReferences.current = data.joined_orders_menu;
     return data;
   };
 
   const redirect = useRedirect();
   const onSuccess = async (data: Omit<OrderForm, 'joined_orders_menu'>) => {
-    await mutateJoinResource({
+    await mutate({
       id: data.id,
       newReferences: newReferences.current,
     });
@@ -37,9 +33,9 @@ export const OrderCreate = () => {
   return (
     <Create title="Нове замовлення" transform={transform} mutationOptions={{ onSuccess }}>
       <SimpleForm>
+        <TextInput source="client_address" label="Адреса" fullWidth />
         <TextInput source="client_name" label="Ім'я" />
         <TextInput source="client_phone" label="Телефон" />
-        <TextInput source="client_address" label="Адреса" fullWidth={true} />
         <ReferenceInput source="status" reference="order_status">
           <SelectInput
             optionText="label"
@@ -48,12 +44,7 @@ export const OrderCreate = () => {
             disabled
           />
         </ReferenceInput>
-        <ManyToManyInput
-          label="Меню"
-          reference="menu"
-          source="joined_orders_menu"
-          {...fieldsProps}
-        />
+        <MenuOrderInput />
       </SimpleForm>
     </Create>
   );
