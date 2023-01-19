@@ -15,26 +15,26 @@ import { useGetSettingsQuery } from './core/types';
 import { DashBoard } from './modules/dashboard/components/dashboard/dashboard.component';
 import { customerResource } from './modules/customers/customers.resource';
 import OneSignalReact from 'react-onesignal';
+import { config } from './core/config';
 
 export const App = () => {
-  const {data: settings} = useGetSettingsQuery();
-
+  const { data: settings } = useGetSettingsQuery();
 
   const [dataProvider, setDataProvider] = useState<DataProvider<string> | null>(null);
-
   useEffect(() => {
-    const getdDataProvider = async () => {
-      const dataProvider = await buildDataProvider();
+    const getDataProvider = async () => {
+      const dp = await buildDataProvider();
 
-      setDataProvider(dataProvider);
+      setDataProvider(dp);
     };
 
-    getdDataProvider();
+    getDataProvider();
   }, []);
 
   useEffect(() => {
-    OneSignalReact.init({appId: "536ae661-1045-4dac-8254-77ef4b65a420"})
-  },[])
+    // @ts-ignore
+    OneSignalReact.init({ appId: config.onesignalAppId });
+  }, []);
 
   if (!dataProvider || !settings) {
     return <Loading />;
