@@ -24,6 +24,9 @@ export const OrderEdit = () => {
         <ReferenceInput source="status" reference="order_status">
           <SelectInput optionText="label" label="Статус замовлення" />
         </ReferenceInput>
+        <ReferenceInput source="payment_status" reference="payment_status">
+          <SelectInput optionText="label" label="Статус оплати" />
+        </ReferenceInput>
         <MenuOrderInput />
       </SimpleForm>
     </Edit>

@@ -21,6 +21,14 @@ export const OrderShow = () => {
         >
           <TextField source="label" />
         </ReferenceField>
+        <ReferenceField
+          reference="payment_status"
+          source="payment_status"
+          label="Статус оплати"
+          link={false}
+        >
+          <TextField source="label" />
+        </ReferenceField>
         <FunctionField
           label="Загальна сума замовлення"
           source="sum"

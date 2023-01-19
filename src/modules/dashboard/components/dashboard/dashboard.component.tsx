@@ -21,18 +21,18 @@ export const DashBoard = () => {
           <Grid item xs={12}>
             <Card variant="outlined">
               <CardContent>
-                <Typography variant="h6" sx={{ marginBottom: '32px' }}>
-                  Продажі за останній тиждень
-                </Typography>
-                <FinanceChart data={data?.last_week_orders ?? []} />
+                <Typography variant="h6">Останні нові замовлення</Typography>
+                <NewOrders />
               </CardContent>
             </Card>
           </Grid>
           <Grid item xs={12}>
             <Card variant="outlined">
               <CardContent>
-                <Typography variant="h6">Останні нові замовлення</Typography>
-                <NewOrders />
+                <Typography variant="h6" sx={{ marginBottom: '32px' }}>
+                  Продажі за останній тиждень
+                </Typography>
+                <FinanceChart data={data?.last_week_orders ?? []} />
               </CardContent>
             </Card>
           </Grid>
